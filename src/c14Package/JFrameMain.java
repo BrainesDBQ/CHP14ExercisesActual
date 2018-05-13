@@ -127,7 +127,7 @@ public class JFrameMain extends JFrame {
 				
 				// make sure list is not null
 				if (null !=myList){
-					int iResult = Sorting.binarySearchDisplay(myList, myList.length, iSearch, sArray)
+					int iResult = Sorting.binarySearchDisplay(myList, myList.length, iSearch, sArray);
 							txtAreaSortoutput.append(sArray[0]);
 				}
 			}
