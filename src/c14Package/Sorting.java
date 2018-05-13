@@ -109,7 +109,24 @@ public class Sorting {
 		// type in the code for the binary search found on page 918
 		// write the code
 		
-		return 0;  // replace this with the correct return statement
+		int first = 0;
+		int last = listLength -1;
+		int mid;
+		boolean found = false;
+		
+		while (first <= last && !found) {
+			mid = (first + last) / 2; // middle location in tjhe list
+			if (list[mid]== searchItem)
+				found = true; // we are done if we found value
+			else 
+				if (list[mid] > searchItem) // middle elemnt is greater
+					last = mid -1; // next iteration will search left
+			
+				else
+					first = mid + 1; // next iteration will be right half
+		}
+		
+		return found ? first : -1;  // replace this with the correct return statement
 	}
 	
 	
@@ -173,6 +190,38 @@ public class Sorting {
 			
 		}
 		
+	}
+
+
+
+
+
+	public static int binarySearchDisplay(int[] list, int listLength, int searchItem, String[] sDebug) {
+		// TODO Auto-generated method stub
+		int first = 0;
+		int last = listLength -1;
+		int mid;
+		boolean found = false;
+		String sInfo = "iteration\tfirst\tlast\tmid\tlist[mid] \n";
+		int iteration = 1;
+		
+		while (first <- last && !found){
+			mid = (first + last) / 2; // middle location in list
+			sInfo += iteration++ + "\t\t" + first + "\t" + last + "\t" + mid + "\t" + list[mid] + "\n";
+			
+					if (list[mid] == searchItem)
+						found = true;
+					else 
+						if (list[mid] > searchItem) // middle elemnt is greater
+							last = mid -1;
+						else
+							first = mid +1; 
+			
+		}
+		
+		sDebug[0] = sInfo;
+		//shortcut for if (found) return first; else return -1;
+		return found ? first : -1;
 	}
 	
 }

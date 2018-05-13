@@ -13,9 +13,12 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.Label;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
+import java.util.Vector;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  * @author Brandon Raines
@@ -29,6 +32,7 @@ public class JFrameMain extends JFrame {
 	
 	// Global variables
 	int[] myList;  // this will contain integers to be sorted
+	private JTextField textFieldSearch;
 	
 
 	/**
@@ -99,6 +103,11 @@ public class JFrameMain extends JFrame {
 			}
 		});
 		
+		textFieldSearch = new JTextField();
+		textFieldSearch.setBounds(458, 261, 86, 49);
+		contentPane.add(textFieldSearch);
+		textFieldSearch.setColumns(10);
+		
 
 		Label label = new Label("This program demonstrates sorting of arrays and lists.");
 		label.setFont(new Font("Dialog", Font.PLAIN, 18));
@@ -112,12 +121,19 @@ public class JFrameMain extends JFrame {
 				// sort myList
 				// display the first 50 items in the list
 				// search for an item in myList
+				int iSearch = Integer.parseInt(textFieldSearch.getText());
 				// display the result of the search
+				String[] sArray = {"Search info"};
 				
+				// make sure list is not null
+				if (null !=myList){
+					int iResult = Sorting.binarySearchDisplay(myList, myList.length, iSearch, sArray)
+							txtAreaSortoutput.append(sArray[0]);
+				}
 			}
 		});
 		btnExerciseBinary.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		btnExerciseBinary.setBounds(12, 257, 551, 53);
+		btnExerciseBinary.setBounds(12, 257, 432, 53);
 		contentPane.add(btnExerciseBinary);
 		
 		JButton btnCreateAList = new JButton("Create an int[] list");
@@ -257,6 +273,30 @@ public class JFrameMain extends JFrame {
 		btnExerciseInsertionsortvector.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
+				//test a Vector<String> Sort
+				
+				// create a test vector of Strings
+				
+				String[] sArray = {"z", "y", "x", "d", "c", "b", "a"};
+				Vector<String> vStr = new Vector<String>(Arrays.asList(sArray));
+				
+				// Display the contents of my vector before the sort
+				txtAreaSortoutput.append("\n Vector before sort: \n [");
+				for( String str : vStr)
+					txtAreaSortoutput.append(str + " ");
+				txtAreaSortoutput.append("} \n");
+				
+				Sorting.insertionSortVector(vStr);
+				
+				// display the contents of my vector after sort
+				txtAreaSortoutput.append("Vector after sort: \n [");
+				for( String str: vStr)
+					txtAreaSortoutput.append(str + " ");
+					txtAreaSortoutput.append("]\n");
+				
+				
+				
+				
 			}
 		});
 		btnExerciseInsertionsortvector.setFont(new Font("Tahoma", Font.PLAIN, 24));
@@ -313,5 +353,4 @@ for ( int i=rLocation; i<len-1;i++){
 		return len-1;
 	
 }
-	
 }
