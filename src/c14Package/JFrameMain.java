@@ -123,7 +123,7 @@ public class JFrameMain extends JFrame {
 				// search for an item in myList
 				int iSearch = Integer.parseInt(textFieldSearch.getText());
 				// display the result of the search
-				String[] sArray = {"Search info"};
+				String[] sArray = {"search info"};
 				
 				// make sure list is not null
 				if (null !=myList){
@@ -284,7 +284,7 @@ public class JFrameMain extends JFrame {
 				txtAreaSortoutput.append("\n Vector before sort: \n [");
 				for( String str : vStr)
 					txtAreaSortoutput.append(str + " ");
-				txtAreaSortoutput.append("} \n");
+				txtAreaSortoutput.append("] \n");
 				
 				Sorting.insertionSortVector(vStr);
 				

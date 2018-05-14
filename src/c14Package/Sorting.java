@@ -110,7 +110,7 @@ public class Sorting {
 		// write the code
 		
 		int first = 0;
-		int last = listLength -1;
+		int last = listLength - 1;
 		int mid;
 		boolean found = false;
 		
@@ -120,7 +120,7 @@ public class Sorting {
 				found = true; // we are done if we found value
 			else 
 				if (list[mid] > searchItem) // middle elemnt is greater
-					last = mid -1; // next iteration will search left
+					last = mid - 1; // next iteration will search left
 			
 				else
 					first = mid + 1; // next iteration will be right half
@@ -177,16 +177,16 @@ public class Sorting {
 		// iterate through all items in the vector
 		
 		for (int i = 1; i < vString.size(); i++){
-			String temp = vString.get(i);
+			String x = vString.get(i);
 			int j = i - 1;
 			
 			// find the correct position for string temp in the vector vString
-			while (0 <= j && vString.get(j).compareTo(temp) > 0){
-				vString.set(j, vString.get(j -1));
-				j --;
+			while (0 <= j && vString.get(j).compareTo(x) > 0){
+				vString.set(j+1, vString.get(j));
+				j--;
 			}
 			
-			vString.set(j + 1, temp);
+			vString.set(j + 1, x);
 			
 		}
 		
@@ -205,7 +205,7 @@ public class Sorting {
 		String sInfo = "iteration\tfirst\tlast\tmid\tlist[mid] \n";
 		int iteration = 1;
 		
-		while (first <- last && !found){
+		while (first <= last && !found){
 			mid = (first + last) / 2; // middle location in list
 			sInfo += iteration++ + "\t\t" + first + "\t" + last + "\t" + mid + "\t" + list[mid] + "\n";
 			
